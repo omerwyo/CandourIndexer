@@ -15,19 +15,21 @@ def dump_datetime(value):
 class Product(db.Model):
     __tablename__='products'
 
-    batchHash = db.Column(db.String, primary_key=True)
+    batchHash = db.Column(db.String, primary_key=True, nullable=False)
     productName = db.Column(db.String, nullable=False)
     completed_on = db.Column(db.DateTime, nullable=False)
-    # id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    # registered_on = db.Column(db.DateTime, nullable=False)
-    # isVerified = db.Column(db.Boolean, nullable=False, default=False)
+    imageUrl = db.Column(db.String, nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    completed_on = db.Column(db.DateTime, nullable=False)
 
-    def __init__(self, email, name):
-        self.email = email
-        self.name = name
+    def __init__(self, batchHash, productName, imageUrl, description) -> None:
+        self.batchHash = batchHash
+        self.productName = productName
+        self.imageUrl = imageUrl
+        self.description = description
         self.completed_on = datetime.datetime.now()
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f'Product #{self.batchHash}({self.productName}, {self.completed_on}'
 
     @property
