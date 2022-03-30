@@ -39,6 +39,8 @@ class Product(db.Model):
             'batchHash': self.batchHash,
             'productName': self.productName,
             'dateCreated': dump_datetime(self.completed_on),
+            'description': self.description,
+            'imageUrl': self.imageUrl
         }
 
 # ------------------------------------------------------------------- #

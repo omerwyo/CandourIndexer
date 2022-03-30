@@ -7,7 +7,7 @@ from project.routes.database import db
 # ------------------------------------------------------------------- #
 # bookkeep a product with the specified hash
 @app.route('/product', methods=['POST'])
-def register():
+def addProduct():
     post_data = request.get_json()
 
     # check if user already exists
@@ -43,4 +43,16 @@ def register():
                 'message': 'Some error occurred. Please try again.'
             }
             return make_response(jsonify(responseObject)), 400
+# ------------------------------------------------------------------- #
+
+# ------------------------------------------------------------------- #
+# get all products
+@app.route('/product', methods=['GET'])
+def getProducts():
+    products = Product.query.all()
+
+    for idx, product in enumerate(products):
+        products[idx] = products[idx].serialize()
+    return make_response(jsonify(products)), 200
+        
 # ------------------------------------------------------------------- #
