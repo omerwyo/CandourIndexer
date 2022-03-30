@@ -13,7 +13,7 @@ def dump_datetime(value):
 
 # This product object is each of the products that we can see in our product discovery page
 class Product(db.Model):
-    __tablename__='products'
+    __tablename__='product'
 
     batchHash = db.Column(db.String, primary_key=True, nullable=False)
     productName = db.Column(db.String, nullable=False)
