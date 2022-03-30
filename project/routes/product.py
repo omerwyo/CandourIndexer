@@ -1,5 +1,4 @@
 from datetime import timedelta
-from itertools import product
 from flask import request, jsonify, make_response
 from project import app
 from project.routes.models import Product
