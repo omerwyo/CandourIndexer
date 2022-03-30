@@ -10,7 +10,7 @@ from project.routes.database import db
 def addProduct():
     post_data = request.get_json()
 
-    # check if user already exists
+    # check if Product already exists
     product = Product.query.filter_by(batchHash=post_data.get('hash')).first()
     if product: 
         responseObject = {
