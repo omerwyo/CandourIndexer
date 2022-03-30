@@ -48,5 +48,7 @@ def addProduct():
 @app.route('/product', methods=['GET'])
 def getProducts():
     products = Product.query.all()
+    print(products)
+    print(type(products))
     return jsonify(products=[p.serialize() for p in products]), 200
 # ------------------------------------------------------------------- #

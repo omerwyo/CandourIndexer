@@ -31,7 +31,6 @@ class Product(db.Model):
     def __repr__(self) -> str:
         return f'Product #{self.batchHash}({self.productName}, {self.completed_on}'
 
-    @property
     def serialize(self):
         """Return object data in easily serializable format"""
         return {
