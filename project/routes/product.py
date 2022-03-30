@@ -24,7 +24,6 @@ def addProduct():
             product = Product(
                 batchHash=post_data.get('hash'),
                 productName=post_data.get('name'),
-                password=post_data.get('password'),
                 imageUrl=post_data.get('imageUrl'),
                 description=post_data.get('description')
             )

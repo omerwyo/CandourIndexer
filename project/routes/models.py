@@ -42,5 +42,4 @@ class Product(db.Model):
             'description': self.description,
             'imageUrl': self.imageUrl
         }
-
 # ------------------------------------------------------------------- #
