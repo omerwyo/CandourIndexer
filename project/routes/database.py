@@ -1,7 +1,7 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
-from models import Product
+
 # ------------------------------------------------------------------- #
 '''
 setup_db(app):
@@ -18,6 +18,7 @@ def setup_db(app):
     can be used to initialize a clean database
 '''
 def db_drop_and_create_all():
+    from project.routes.models import Product
     db.drop_all()
     db.create_all()
 # ------------------------------------------------------------------- #
