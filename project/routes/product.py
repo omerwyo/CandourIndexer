@@ -1,6 +1,6 @@
 from flask import request, jsonify, make_response
 from project import app
-from project.routes.models import User, bcrypt
+from project.routes.models import Product
 from project.routes.database import db
 
 # ------------------------------------------------------------------- #

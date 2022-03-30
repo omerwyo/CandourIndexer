@@ -2,7 +2,6 @@
 from project.routes.database import db
 import datetime
 
-
 '''
     Deserialize datetime object into string form for JSON processing.
 '''
