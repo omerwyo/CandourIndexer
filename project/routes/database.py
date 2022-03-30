@@ -1,6 +1,7 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
+from project.routes.models import Product
 
 # ------------------------------------------------------------------- #
 '''

@@ -1,4 +1,3 @@
-# from project.__init__ import app
 from project.routes.database import db
 import datetime
 
