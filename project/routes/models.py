@@ -24,14 +24,15 @@ class Product(db.Model):
     is_completed = db.Column(db.Boolean, nullable=False)
     last_updated = db.Column(db.DateTime, nullable=False)
 
-    def __init__(self, batchNo, fertiliser_type:str, fertiliser_used:int, water_consumption:int, biowaste:int) -> None:
+    def __init__(self, batchNo, fertiliser_type, fertiliser_used, water_consumption, biowaste, location) -> None:
         self.batchNo = batchNo
 
         # Stage 1 Attributes; we pass in the details for the very first stage with the creation of the product object
         self.stage_one = {"fertiliser_type": fertiliser_type,
                           "fertiliser_used": fertiliser_used,
                           "water_consumption": water_consumption,
-                          "biowaste": biowaste}
+                          "biowaste": biowaste,
+                          "location": location}
         # Stage 2 Attributes; default, to be updated incrementally
         self.stage_two = {"water_consumption": None,
                           "electricity_used": None,
@@ -43,15 +44,18 @@ class Product(db.Model):
         self.last_updated = datetime.datetime.now()
 
     def __repr__(self) -> str:
-        return f'Product #{self.batchHash}({self.productName}, {self.completed_on}'
+        return f'Product #{self.batchNo}, Last Updated: {self.last_updated}'
 
     def serialize(self):
         """Return object data in easily serializable format"""
         return {
-            'batchHash': self.batchHash,
+            'batchNo': self.batchHash,
+            'stage_one': self.stage_one,
+            'stage_two': self.stage_two,
+            'last_updated': dump_datetime(self.last_updated),
+            'is_completed': self.is_completed,
             'productName': self.productName,
-            'dateCreated': dump_datetime(self.completed_on),
-            'description': self.description,
-            'imageUrl': self.imageUrl
+            'imageUrl': self.imageUrl,
+            'description': self.description
         }
 # ------------------------------------------------------------------- #

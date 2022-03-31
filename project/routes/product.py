@@ -41,11 +41,12 @@ def addProduct():
             # Commit the product to our DB
             # We will be inputting stage 1 details at this point
             product = Product(
-                batchHash=post_data.get('batchNo'),
+                batchNo=post_data.get('batchNo'),
                 fertiliser_type=post_data.get('fertiliser_type'),
                 fertiliser_used=post_data.get('fertiliser_used'),
                 water_consumption=post_data.get('water_consumption'),
-                biowaste=post_data.get('biowaste')
+                biowaste=post_data.get('biowaste'),
+                location=post_data.get('location')
             )
             # insert the user
             db.session.add(product)
