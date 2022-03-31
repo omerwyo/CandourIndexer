@@ -48,7 +48,7 @@ def addProduct():
                 biowaste=post_data.get('biowaste'),
                 location=post_data.get('location')
             )
-            print(f'Product is: {product.serialize()}')
+            # print(f'Product is: {product.serialize()}')
             # insert the user
             db.session.add(product)
             db.session.commit()
