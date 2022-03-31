@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 from flask import request, jsonify, make_response
 from project import app
 from project.routes.models import Product
