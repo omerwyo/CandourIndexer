@@ -37,12 +37,12 @@ class Product(db.Model):
                           "biowaste": biowaste,
                           "location": location}
         # Stage 2 Attributes; default, to be updated incrementally
-        self.stage_two = {"water_consumption": None,
-                          "electricity_used": None,
-                          "effluent_released": None}
-        self.productName = None
-        self.imageUrl = None
-        self.description = None
+        self.stage_two = {"water_consumption": "",
+                          "electricity_used": "",
+                          "effluent_released": ""}
+        self.productName = ""
+        self.imageUrl = ""
+        self.description = ""
         self.is_completed = False
         self.last_updated = datetime.datetime.now()
 
