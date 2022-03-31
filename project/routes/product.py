@@ -15,9 +15,9 @@ def addProduct():
     if product:
         try:
             # Initiate the update of a stage of this product (Entering in stage 2 + Product Discovery end's details)
-            product.stage_two["water_consumption"] = post_data.get("water_consumption")
-            product.stage_two["electricity_used"] = post_data.get("electricity_used")
-            product.stage_two["effluent_released"] = post_data.get("effluent_released")
+            product.water_consumption_2 = post_data.get("water_consumption")
+            product.electricity_used = post_data.get("electricity_used")
+            product.effluent_released["effluent_released"] = post_data.get("effluent_released")
             product.productName = post_data.get("productName")
             product.imageUrl = post_data.get("imageUrl")
             product.description = post_data.get("description")
@@ -28,7 +28,7 @@ def addProduct():
                 'status': 'Success',
                 'message': 'Product with batchNo '+ post_data.get('batchNo') + "'s stage 2 has been updated!",
             }
-            return make_response(jsonify(responseObject)), 200
+            return make_response(jsonify(responseObject)), 201
         except Exception as e:
             print(e)
             responseObject = {
