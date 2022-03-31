@@ -1,6 +1,7 @@
 from ast import Str
 from project.routes.database import db
 import datetime
+import json
 
 '''
     Deserialize datetime object into string form for JSON processing.
@@ -19,8 +20,8 @@ class Product(db.Model):
     __tablename__='product'
 
     batchNo = db.Column(db.String, primary_key=True, nullable=False)
-    stage_one = db.Column(db.PickleType(TextPickleType))
-    stage_two = db.Column(db.PickleType(TextPickleType))
+    stage_one = db.Column(TextPickleType(pickler=json))
+    stage_two = db.Column(TextPickleType(pickler=json))
     productName = db.Column(db.String, nullable=True)
     imageUrl = db.Column(db.String, nullable=True)
     description = db.Column(db.String, nullable=True)
