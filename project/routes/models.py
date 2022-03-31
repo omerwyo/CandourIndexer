@@ -63,8 +63,15 @@ class Product(db.Model):
         """Return object data in easily serializable format"""
         return {
             'batchNo': self.batchNo,
-            'stage_one': self.stage_one,
+            'fertiliser_type': self.fertiliser_type,
+            'fertiliser_used': self.fertiliser_used,
+            'water_consumption': self.water_consumption,
+            'biowaste': self.biowaste,
+            'location': self.location,
             'stage_two': self.stage_two,
+            'water_consumption_2': self.water_consumption,
+            'electricity_used': self.electricity_used,
+            'effluent_released': self.effluent_released,
             'last_updated': dump_datetime(self.last_updated),
             'is_completed': self.is_completed,
             'productName': self.productName,
