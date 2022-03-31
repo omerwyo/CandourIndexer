@@ -23,7 +23,7 @@ class Product(db.Model):
     stage_two = db.Column(db.PickleType(TextPickleType))
     productName = db.Column(db.String, nullable=True)
     imageUrl = db.Column(db.String, nullable=True)
-    description = db.Column(db.Text, nullable=True)
+    description = db.Column(db.String, nullable=True)
     is_completed = db.Column(db.Boolean, nullable=False)
     last_updated = db.Column(db.DateTime, nullable=False)
 
