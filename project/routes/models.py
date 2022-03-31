@@ -19,8 +19,6 @@ class Product(db.Model):
     __tablename__='product'
 
     batchNo = db.Column(db.String, primary_key=True, nullable=False)
-    # stage_one = db.Column(db.PickleType(mutable=True), nullable=False)
-    # stage_two = db.Column(db.PickleType(mutable=True), nullable=False)
     stage_one = db.Column(db.PickleType(TextPickleType))
     stage_two = db.Column(db.PickleType(TextPickleType))
     productName = db.Column(db.String, nullable=True)
