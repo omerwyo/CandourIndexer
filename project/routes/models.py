@@ -68,7 +68,6 @@ class Product(db.Model):
             'water_consumption': self.water_consumption,
             'biowaste': self.biowaste,
             'location': self.location,
-            'stage_two': self.stage_two,
             'water_consumption_2': self.water_consumption,
             'electricity_used': self.electricity_used,
             'effluent_released': self.effluent_released,
