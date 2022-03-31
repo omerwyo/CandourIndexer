@@ -1,6 +1,6 @@
 from ast import Str
 from project.routes.database import db
-import datetime
+from datetime import datetime
 import json
 
 '''
