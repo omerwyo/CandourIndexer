@@ -31,6 +31,7 @@ class Product(db.Model):
     electricity_used = db.Column(db.String, nullable=True)
     effluent_released = db.Column(db.String, nullable=True)
 
+    productName = db.Column(db.String, nullable=True)
     imageUrl = db.Column(db.String, nullable=True)
     description = db.Column(db.String, nullable=True)
     is_completed = db.Column(db.Boolean, nullable=False)
