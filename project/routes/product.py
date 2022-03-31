@@ -17,12 +17,12 @@ def addProduct():
             # Initiate the update of a stage of this product (Entering in stage 2 + Product Discovery end's details)
             product.water_consumption_2 = post_data.get("water_consumption")
             product.electricity_used = post_data.get("electricity_used")
-            product.effluent_released["effluent_released"] = post_data.get("effluent_released")
+            product.effluent_released = post_data.get("effluent_released")
             product.productName = post_data.get("productName")
             product.imageUrl = post_data.get("imageUrl")
             product.description = post_data.get("description")
             product.last_updated = datetime.datetime.now()
-            product.is_completed = False
+            product.is_completed = True
             db.session.commit()
             responseObject = {
                 'status': 'Success',
