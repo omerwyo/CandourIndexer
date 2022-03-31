@@ -52,7 +52,7 @@ class Product(db.Model):
     def serialize(self):
         """Return object data in easily serializable format"""
         return {
-            'batchNo': self.batchHash,
+            'batchNo': self.batchNo,
             'stage_one': self.stage_one,
             'stage_two': self.stage_two,
             'last_updated': dump_datetime(self.last_updated),
