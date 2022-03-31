@@ -1,4 +1,6 @@
 import datetime
+import json
+from math import prod
 from flask import request, jsonify, make_response
 from project import app
 from project.routes.models import Product
@@ -68,8 +70,24 @@ def addProduct():
 
 # ------------------------------------------------------------------- #
 # get all products
-@app.route('/product', methods=['GET'])
+@app.route('/getAll', methods=['GET'])
 def getProducts():
     products = Product.query.all()
     return jsonify(products=[p.serialize() for p in products]), 200
+# ------------------------------------------------------------------- #
+# ------------------------------------------------------------------- #
+# get all products
+@app.route('/product', methods=['GET'])
+def getProducts():
+    queryBatchNo = request.args.get('id')
+    product = Product.query.get(queryBatchNo)
+    if not product:
+        responseObject = {
+                'status': 'Failed',
+                'message': f'Product with batchNo {queryBatchNo} doesn\'t exist'
+            }
+        return make_response(jsonify(responseObject)), 404
+    else:
+        responseObject = product
+        return make_response(jsonify(product.serialize())), 200
 # ------------------------------------------------------------------- #
