@@ -11,8 +11,8 @@ def dump_datetime(value):
         return None
     return value.strftime("%d %b %Y, %H:%M")
 
-class TextPickleType(db.PickleType):
-    impl = db.Text
+# class TextPickleType(db.PickleType):
+#     impl = db.Text
 
 # ------------------------------------------------------------------- #
 # This product object is each of the products that we can see in our product discovery page
@@ -20,9 +20,17 @@ class Product(db.Model):
     __tablename__='product'
 
     batchNo = db.Column(db.String, primary_key=True, nullable=False)
-    stage_one = db.Column(TextPickleType(pickler=json))
-    stage_two = db.Column(TextPickleType(pickler=json))
-    productName = db.Column(db.String, nullable=True)
+
+    fertiliser_type = db.Column(db.String, nullable=True)
+    fertiliser_used = db.Column(db.String, nullable=True)
+    water_consumption = db.Column(db.String, nullable=True)
+    biowaste = db.Column(db.String, nullable=True)
+    location = db.Column(db.String, nullable=True)
+
+    water_consumption_2 = db.Column(db.String, nullable=True)
+    electricity_used = db.Column(db.String, nullable=True)
+    effluent_released = db.Column(db.String, nullable=True)
+
     imageUrl = db.Column(db.String, nullable=True)
     description = db.Column(db.String, nullable=True)
     is_completed = db.Column(db.Boolean, nullable=False)
@@ -32,15 +40,16 @@ class Product(db.Model):
         self.batchNo = batchNo
 
         # Stage 1 Attributes; we pass in the details for the very first stage with the creation of the product object
-        self.stage_one = {"fertiliser_type": fertiliser_type,
-                          "fertiliser_used": fertiliser_used,
-                          "water_consumption": water_consumption,
-                          "biowaste": biowaste,
-                          "location": location}
+        self.fertiliser_type = fertiliser_type
+        self.fertiliser_used = fertiliser_used
+        self.water_consumption = water_consumption
+        self.biowaste = biowaste
+        self.location = location
+
         # Stage 2 Attributes; default, to be updated incrementally
-        self.stage_two = {"water_consumption": "",
-                          "electricity_used": "",
-                          "effluent_released": ""}
+        self.water_consumption_2 = ""
+        self.electricity_used = ""
+        self.effluent_released = ""
         self.productName = ""
         self.imageUrl = ""
         self.description = ""
