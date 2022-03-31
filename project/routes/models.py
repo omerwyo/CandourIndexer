@@ -10,14 +10,19 @@ def dump_datetime(value):
         return None
     return value.strftime("%d %b %Y, %H:%M")
 
+class TextPickleType(db.PickleType):
+    impl = db.Text
+
 # ------------------------------------------------------------------- #
 # This product object is each of the products that we can see in our product discovery page
 class Product(db.Model):
     __tablename__='product'
 
     batchNo = db.Column(db.String, primary_key=True, nullable=False)
-    stage_one = db.Column(db.PickleType(mutable=True), nullable=False)
-    stage_two = db.Column(db.PickleType(mutable=True), nullable=False)
+    # stage_one = db.Column(db.PickleType(mutable=True), nullable=False)
+    # stage_two = db.Column(db.PickleType(mutable=True), nullable=False)
+    stage_one = db.Column(db.PickleType(TextPickleType))
+    stage_two = db.Column(db.PickleType(TextPickleType))
     productName = db.Column(db.String, nullable=True)
     imageUrl = db.Column(db.String, nullable=True)
     description = db.Column(db.Text, nullable=True)
