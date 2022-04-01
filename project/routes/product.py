@@ -78,7 +78,7 @@ def getProducts():
 # ------------------------------------------------------------------- #
 # get product by batchno
 @app.route('/product', methods=['GET'])
-def getProducts():
+def getProductById():
     queryBatchNo = request.args.get('id')
     product = Product.query.get(queryBatchNo)
     if not product:
