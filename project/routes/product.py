@@ -76,7 +76,7 @@ def getProducts():
     return jsonify(products=[p.serialize() for p in products]), 200
 # ------------------------------------------------------------------- #
 # ------------------------------------------------------------------- #
-# get all products
+# get product by batchno
 @app.route('/product', methods=['GET'])
 def getProducts():
     queryBatchNo = request.args.get('id')
