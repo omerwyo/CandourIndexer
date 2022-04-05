@@ -1,6 +1,5 @@
 import datetime
 import json
-from math import prod
 from flask import request, jsonify, make_response
 from project import app
 from project.routes.models import Product
@@ -25,6 +24,7 @@ def addProduct():
             product.description = post_data.get("description")
             product.last_updated = datetime.datetime.now()
             product.is_completed = True
+            product.location_two = post_data.get("location_two")
             db.session.commit()
             responseObject = {
                 'status': 'Success',

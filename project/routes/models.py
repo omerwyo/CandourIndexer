@@ -30,6 +30,7 @@ class Product(db.Model):
     water_consumption_2 = db.Column(db.String, nullable=True)
     electricity_used = db.Column(db.String, nullable=True)
     effluent_released = db.Column(db.String, nullable=True)
+    location_two = db.Column(db.String, nullable=True)    
 
     productName = db.Column(db.String, nullable=True)
     imageUrl = db.Column(db.String, nullable=True)
@@ -72,6 +73,7 @@ class Product(db.Model):
             'water_consumption_2': self.water_consumption,
             'electricity_used': self.electricity_used,
             'effluent_released': self.effluent_released,
+            'location_two': self.location_two,
             'last_updated': dump_datetime(self.last_updated),
             'is_completed': self.is_completed,
             'productName': self.productName,
