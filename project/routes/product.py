@@ -94,7 +94,7 @@ def getProductById():
 
 # delete product by batchno
 @app.route('/product', methods=['DELETE'])
-def getProductById():
+def delProductById():
     queryBatchNo = request.args.get('id')
     product = Product.query.get(queryBatchNo)
     if not product:
