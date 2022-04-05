@@ -1,4 +1,3 @@
-from ast import Str
 from project.routes.database import db
 import datetime
 import json
@@ -10,9 +9,6 @@ def dump_datetime(value):
     if value is None:
         return None
     return value.strftime("%d %b %Y, %H:%M")
-
-# class TextPickleType(db.PickleType):
-#     impl = db.Text
 
 # ------------------------------------------------------------------- #
 # This product object is each of the products that we can see in our product discovery page
