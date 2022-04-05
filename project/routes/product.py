@@ -91,3 +91,24 @@ def getProductById():
         responseObject = product
         return make_response(jsonify(product.serialize())), 200
 # ------------------------------------------------------------------- #
+
+# delete product by batchno
+@app.route('/product', methods=['DELETE'])
+def getProductById():
+    queryBatchNo = request.args.get('id')
+    product = Product.query.get(queryBatchNo)
+    if not product:
+        responseObject = {
+                'status': 'Failed',
+                'message': f'Product with batchNo {queryBatchNo} doesn\'t exist'
+            }
+        return make_response(jsonify(responseObject)), 404
+    else:
+        db.session.delete(product)
+        db.session.commit()
+        responseObject = {
+                'status': 'Success',
+                'message': f'Product with batchNo {queryBatchNo} deleted'
+            }
+        return make_response(responseObject), 200
+# ------------------------------------------------------------------- #
