@@ -110,5 +110,5 @@ def delProductById():
                 'status': 'Success',
                 'message': f'Product with batchNo {queryBatchNo} deleted'
             }
-        return make_response(responseObject), 200
+        return make_response(jsonify(responseObject)), 200
 # ------------------------------------------------------------------- #
